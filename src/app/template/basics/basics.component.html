@@ -20,7 +20,7 @@
       <div class="mb-3 row">
         <label class="col-sm-3 col-form-label" for="">Price</label>
         <div class="col-sm-9">
-          <input type="number" ngModel name="price"
+          <input type="number" ngModel name="price" min="0"
           required class="form-control" placeholder="Price of the product">
           <span *ngIf="validPrice()"
             class="form-text text-danger">The price must be equal or greater than 0</span>
@@ -31,8 +31,8 @@
       <div class="mb-3 row">
         <label class="col-sm-3 col-form-label" for="">Stock</label>
         <div class="col-sm-9">
-          <input type="number" ngModel name="stock"
-          class="form-control" placeholder="Stock of the product">
+          <input type="number" ngModel name="stock" customMin [minimum]="0"
+          class="form-control" placeholder="Stock of the product" required>
         </div>
       </div>
 
@@ -59,5 +59,8 @@
 
     <span>Valid</span>
     <pre>{{myForm.value | json}}</pre>
+
+    <span>CustomDirective</span>
+    <pre>{{myForm.controls['stock']?.errors | json}}</pre>
   </div>
 </div>
