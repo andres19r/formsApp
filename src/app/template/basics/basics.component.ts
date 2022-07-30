@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-basics',
@@ -12,4 +13,7 @@ export class BasicsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  save(myForm: NgForm): void {
+    console.log(myForm.value)
+  }
 }
