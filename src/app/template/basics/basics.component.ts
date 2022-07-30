@@ -19,6 +19,11 @@ export class BasicsComponent implements OnInit {
       && this.myForm?.controls['product']?.touched
   }
 
+  validPrice(): boolean {
+    return this.myForm?.controls['price']?.touched 
+      && this.myForm?.controls['price']?.value < 0
+  }
+
   // save(myForm: NgForm): void {
   save(): void {
     console.log(this.myForm)
