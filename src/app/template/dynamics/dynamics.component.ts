@@ -12,4 +12,7 @@ export class DynamicsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  save(): void {
+    console.log('posted form')
+  }
 }
