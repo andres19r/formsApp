@@ -9,7 +9,7 @@
       <div class="mb-3 row">
         <label class="col-sm-3 col-form-label" for="">Product</label>
         <div class="col-sm-9">
-          <input type="text" ngModel name="product" minlength="3"
+          <input type="text" [(ngModel)]="initForm.product" name="product" minlength="3"
           required class="form-control" placeholder="Name of the product">
           <span *ngIf="validName()"
             class="form-text text-danger">It must be of 3 letters</span>
@@ -20,7 +20,7 @@
       <div class="mb-3 row">
         <label class="col-sm-3 col-form-label" for="">Price</label>
         <div class="col-sm-9">
-          <input type="number" ngModel name="price" min="0"
+          <input type="number" [(ngModel)]="initForm.price" name="price" min="0"
           required class="form-control" placeholder="Price of the product">
           <span *ngIf="validPrice()"
             class="form-text text-danger">The price must be equal or greater than 0</span>
@@ -31,14 +31,15 @@
       <div class="mb-3 row">
         <label class="col-sm-3 col-form-label" for="">Stock</label>
         <div class="col-sm-9">
-          <input type="number" ngModel name="stock" customMin [minimum]="0"
+          <input type="number" [(ngModel)]="initForm.stock" name="stock" customMin [minimum]="0"
           class="form-control" placeholder="Stock of the product" required>
         </div>
       </div>
 
       <div class="row">
         <div class="col">
-          <button class="btn btn-primary float-end" type="submit" [disabled]="myForm.invalid">Save</button>
+          <button class="btn btn-primary float-end"
+           type="submit" [disabled]="myForm.invalid">Save</button>
         </div>
       </div>
 

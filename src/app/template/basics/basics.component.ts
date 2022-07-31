@@ -8,6 +8,11 @@ import { NgForm } from '@angular/forms';
 })
 export class BasicsComponent implements OnInit {
   @ViewChild('myForm') myForm!: NgForm;
+  initForm = {
+    product: 'RTX 4080 ti',
+    price: 1500,
+    stock: 10
+  }
 
   constructor() { }
 
@@ -26,6 +31,11 @@ export class BasicsComponent implements OnInit {
 
   // save(myForm: NgForm): void {
   save(): void {
-    console.log(this.myForm)
+    console.log('Correct posted');
+    this.myForm.resetForm({
+      product: 'something',
+      price: 0,
+      stock: 0
+    });
   }
 }
