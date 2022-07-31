@@ -45,6 +45,5 @@ export class DynamicsComponent implements OnInit {
     }
     this.person.favorites.push({...newFavorite})
     this.newGame = ''
-    console.log('New game added')
   }
 }
