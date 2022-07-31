@@ -31,4 +31,8 @@ export class DynamicsComponent implements OnInit {
   save(): void {
     console.log('posted form');
   }
+
+  delete(index: number): void {
+    this.person.favorites.splice(index, 1)
+  }
 }
