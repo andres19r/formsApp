@@ -6,7 +6,7 @@
 	<div class="mb-3 row">
 		<label class="col-sm-3 col-form-label">Name</label>
 		<div class="col-sm-9">
-			<input class="form-control" ngModel name="name" 
+			<input class="form-control" [ngModel]="person.name" name="name" 
 			required placeholder="Name of the person" type="text">
 			<span class="form-text text-danger" 
 			*ngIf="myForm.controls['name']?.errors && myForm.controls['name'].touched">
@@ -29,7 +29,9 @@
 	<div class="mb-3 row">
 		<label class="col-sm-3 col-form-label">Favorites</label>
 		<div class="col-sm-9">
-			<input class="form-control mb-1">
+			<input *ngFor="let game of person.favorites; let i = index"
+			  [(ngModel)]="game.name" name="favorite_{{i}}" required
+			  class="form-control mb-1">
 		</div>
 	</div>
 
@@ -41,3 +43,6 @@
 	</div>
 
 </form>
+
+<span>Person</span>
+<pre>{{person | json}}</pre>
