@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./switches.component.css']
 })
 export class SwitchesComponent implements OnInit {
+  person = {
+    genre: 'F',
+    notifications: true,
+  }
+
+  termsAndConditions: boolean = false
 
   constructor() { }
 
