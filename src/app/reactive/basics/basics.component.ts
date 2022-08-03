@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-basics',
@@ -7,11 +7,19 @@ import {FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./basics.component.css']
 })
 export class BasicsComponent implements OnInit {
-  myForm: FormGroup = new FormGroup({
-    'name': new FormControl('')
+  // myForm: FormGroup = new FormGroup({
+  //   name: new FormControl('RTX 4080ti'),
+  //   price: new FormControl(0),
+  //   stock: new FormControl(5),
+  // })
+
+  myForm: FormGroup = this.fb.group({
+    name: ['RTX 4080ti'],
+    price: [0],
+    stock: [0]
   })
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }

@@ -20,7 +20,7 @@
       <div class="mb-3 row">
         <label class="col-sm-3 col-form-label" for="">Price</label>
         <div class="col-sm-9">
-          <input type="number" name="price" min="0"
+          <input type="number" name="price" min="0" formControlName="price"
           class="form-control" placeholder="Price of the product">
           <span
             class="form-text text-danger">The price must be equal or greater than 0</span>
@@ -31,7 +31,7 @@
       <div class="mb-3 row">
         <label class="col-sm-3 col-form-label" for="">Stock</label>
         <div class="col-sm-9">
-          <input type="number" name="stock" customMin
+          <input type="number" name="stock" customMin formControlName="stock"
           class="form-control" placeholder="Stock of the product">
         </div>
       </div>
