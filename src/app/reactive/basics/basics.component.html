@@ -9,7 +9,7 @@
       <div class="mb-3 row">
         <label class="col-sm-3 col-form-label" for="">Product</label>
         <div class="col-sm-9">
-          <input type="text" name="product" minlength="3" formControlName="name"
+          <input type="text" name="product" formControlName="name"
           class="form-control" placeholder="Name of the product">
           <span
             class="form-text text-danger">It must be of 3 letters</span>
@@ -39,7 +39,7 @@
       <div class="row">
         <div class="col">
           <button class="btn btn-primary float-end"
-           type="submit">Save</button>
+           type="submit" [disabled]="myForm.invalid">Save</button>
         </div>
       </div>
 

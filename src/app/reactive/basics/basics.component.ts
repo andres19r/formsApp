@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-basics',
@@ -14,9 +14,9 @@ export class BasicsComponent implements OnInit {
   // })
 
   myForm: FormGroup = this.fb.group({
-    name: ['RTX 4080ti'],
-    price: [0],
-    stock: [0]
+    name: ['RTX 4080ti', [Validators.required, Validators.minLength(3)]],
+    price: [0, [ Validators.min(0), Validators.required ]],
+    stock: [0, [ Validators.min(0), Validators.required ]]
   })
 
   constructor(private fb: FormBuilder) { }
