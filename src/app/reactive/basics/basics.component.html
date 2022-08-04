@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="col">
-    <form autocomplete="off" [formGroup]="myForm">
+    <form (ngSubmit)="save()" autocomplete="off" [formGroup]="myForm">
 
       <!-- Product field -->
       <div class="mb-3 row">
@@ -40,8 +40,7 @@
 
       <div class="row">
         <div class="col">
-          <button class="btn btn-primary float-end"
-           type="submit" [disabled]="myForm.invalid">Save</button>
+          <button class="btn btn-primary float-end" type="submit">Save</button>
         </div>
       </div>
 

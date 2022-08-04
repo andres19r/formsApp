@@ -22,10 +22,23 @@ export class BasicsComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.myForm.reset({
+      name: 'RTX 4080ti',
+      price: 1600,
+    })
   }
 
-  isValidField(field: string) {
+  isValidField(field: string): boolean | null {
     return this.myForm.controls[field].errors
      && this.myForm.controls[field].touched
+  }
+
+  save(): void {
+    if(this.myForm.invalid) {
+      this.myForm.markAllAsTouched()
+      return
+    }
+    console.log(this.myForm.value)
+    this.myForm.reset()
   }
 }
