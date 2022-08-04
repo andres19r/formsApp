@@ -14,9 +14,9 @@ export class BasicsComponent implements OnInit {
   // })
 
   myForm: FormGroup = this.fb.group({
-    name: ['RTX 4080ti', [Validators.required, Validators.minLength(3)]],
-    price: [0, [ Validators.min(0), Validators.required ]],
-    stock: [0, [ Validators.min(0), Validators.required ]]
+    name: [, [Validators.required, Validators.minLength(3)]],
+    price: [, [ Validators.min(0), Validators.required ]],
+    stock: [, [ Validators.min(0), Validators.required ]]
   })
 
   constructor(private fb: FormBuilder) { }
@@ -24,4 +24,8 @@ export class BasicsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  isValidField(field: string) {
+    return this.myForm.controls[field].errors
+     && this.myForm.controls[field].touched
+  }
 }
