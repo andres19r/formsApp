@@ -1,15 +1,15 @@
 <h2>Reactive: Dynamics</h2>
 <hr>
 
-<form autocomplete="off">
+<form (ngSubmit)="save()" autocomplete="off" [formGroup]="myForm">
 	<!-- Name -->
 	<div class="mb-3 row">
 		<label class="col-sm-3 col-form-label">Name</label>
 		<div class="col-sm-9">
-			<input class="form-control" name="name" 
+			<input class="form-control" name="name" formControlName="name"
 			placeholder="Name of the person" type="text">
-			<span class="form-text text-danger">
-				This field is </span>
+			<span *ngIf="isValidField('name')" class="form-text text-danger">
+				This field is empty</span>
 		</div>
 	</div>
 
@@ -40,11 +40,11 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<button class="btn btn-primary float-end"
-			 type="button">Save</button>
+			 type="submit">Save</button>
 		</div>
 	</div>
 
 </form>
 
-<!-- <span>Person</span> -->
-<!-- <pre>{{person | json}}</pre> -->
+<!-- <span>Person</span>
+<pre>{{myForm.controls | json}}</pre> -->
