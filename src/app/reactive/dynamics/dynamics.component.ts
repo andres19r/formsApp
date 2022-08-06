@@ -27,6 +27,10 @@ export class DynamicsComponent implements OnInit {
     this.newFavorite.reset();
   }
 
+  deleteFavorite(index: number) {
+    this.favoritesArr.removeAt(index)
+  }
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
