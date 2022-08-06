@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dynamics',
@@ -15,8 +15,16 @@ export class DynamicsComponent implements OnInit {
     ], Validators.required)
   })
 
+  newFavorite: FormControl = this.fb.control('', Validators.required)
+
   get favoritesArr() {
-    return this.myForm.get('favorites') as FormArray
+    return this.myForm.get('favorites') as FormArray;
+  }
+
+  addFavorite() {
+    if(this.newFavorite.invalid) return
+    this.favoritesArr.push(this.fb.control(this.newFavorite.value, Validators.required));
+    this.newFavorite.reset();
   }
 
   constructor(private fb: FormBuilder) { }
