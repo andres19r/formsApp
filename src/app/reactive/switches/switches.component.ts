@@ -21,7 +21,20 @@ export class SwitchesComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.myForm.reset(this.person)
+    this.myForm.reset({
+      ...this.person,
+      terms: false
+    })
+
+    this.myForm.valueChanges.subscribe(({ terms, ...rest }) => {
+      // delete form.terms
+      this.person = rest;
+    })
   }
 
+  save(): void {
+    const formValue = {...this.myForm.value}
+    delete formValue.terms
+    this.person = formValue
+  }
 }

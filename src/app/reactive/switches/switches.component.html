@@ -1,7 +1,7 @@
 <h2>Reactive: Switches</h2>
 <hr />
 
-<form [formGroup]="myForm">
+<form [formGroup]="myForm" (ngSubmit)="save()">
 
   <!-- Radios -->
   <div class="row mb-3">
@@ -63,7 +63,8 @@
   <!-- Submit Button -->
   <div class="row">
     <div class="col">
-			<button class="btn btn-primary float-end">Save</button>
+			<button class="btn btn-primary float-end" type="submit"
+       [disabled]="myForm.invalid">Save</button>
 		</div>
 	</div>
 
