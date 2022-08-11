@@ -23,6 +23,10 @@ export class SidemenuComponent implements OnInit {
     { text: 'Switches', route: './reactive/switches' },
   ];
 
+  authMenu: MenuItem[] = [
+    { text: 'Register', route: './auth/register'},
+    { text: 'Login', route: './auth/Login'}
+  ]
   constructor() {}
 
   ngOnInit(): void {}
