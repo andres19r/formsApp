@@ -25,7 +25,7 @@ export class SidemenuComponent implements OnInit {
 
   authMenu: MenuItem[] = [
     { text: 'Register', route: './auth/register'},
-    { text: 'Login', route: './auth/Login'}
+    { text: 'Login', route: './auth/login'}
   ]
   constructor() {}
 
