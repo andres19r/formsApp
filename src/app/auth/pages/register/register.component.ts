@@ -17,6 +17,10 @@ export class RegisterComponent implements OnInit {
     name: ['', [Validators.required, Validators.pattern(this.validatorService.firstLastNamesPattern)]],
     email: ['', [Validators.required, Validators.pattern(this.validatorService.emailPattern)]],
     username: ['', [Validators.required, this.validatorService.cantBeStrider]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
+    password2: ['', [Validators.required]],
+  }, {
+    validators: [this.validatorService.sameFields('password', 'password2')]
   })
 
   constructor(private fb: FormBuilder, private validatorService: ValidatorService) { }
