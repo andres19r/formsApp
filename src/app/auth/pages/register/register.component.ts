@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { cantBeStrider, emailPattern, firstLastNamesPattern } from 'src/app/shared/validator/validations';
+import { ValidatorService } from 'src/app/shared/validator/validator.service';
 
 @Component({
   selector: 'app-register',
@@ -8,27 +11,15 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class RegisterComponent implements OnInit {
 
-  // TODO: Temporal
-  firstLastNamesPattern: string = "([a-zA-Z]+) ([a-zA-Z]+)"
-  emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
-
-  cantBeStrider(control: FormControl) {
-    const value: string = control.value?.trim().toLowerCase()
-    if (value === 'strider') {
-      return {
-        noStrider: true
-      }
-    }
-    return null
-  }
+  // TODO: move this method
 
   myForm: FormGroup = this.fb.group({
-    name: ['', [Validators.required, Validators.pattern(this.firstLastNamesPattern)]],
-    email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
-    username: ['', [Validators.required, this.cantBeStrider]],
+    name: ['', [Validators.required, Validators.pattern(this.validatorService.firstLastNamesPattern)]],
+    email: ['', [Validators.required, Validators.pattern(this.validatorService.emailPattern)]],
+    username: ['', [Validators.required, this.validatorService.cantBeStrider]],
   })
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private validatorService: ValidatorService) { }
 
   ngOnInit(): void {
     this.myForm.reset({
