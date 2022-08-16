@@ -12,8 +12,7 @@
           <input type="text" formControlName="name"
            class="form-control" placeholder="User name" />
           <span class="form-text text-danger" *ngIf="notValidField('name')"
-            >It must be in first & last name format</span
-          >
+            >It must be in first & last name format</span>
         </div>
       </div>
 
@@ -21,7 +20,9 @@
       <div class="row mb-3">
         <label class="col-sm-3 col-form-label">Email</label>
         <div class="col-sm-9">
-          <input type="email" class="form-control" placeholder="User email" />
+          <input formControlName="email" type="email" class="form-control" placeholder="User email" />
+          <span class="form-text text-danger" *ngIf="notValidField('email')">
+            The emain is required</span>
         </div>
       </div>
 
@@ -68,3 +69,6 @@
 
 <h5>Name</h5>
 <pre>{{myForm.controls['name'].errors | json}}</pre>
+
+<h5>Email</h5>
+<pre>{{myForm.controls['email'].errors | json}}</pre>
