@@ -12,8 +12,6 @@ import { ValidatorService } from 'src/app/shared/validator/validator.service';
 })
 export class RegisterComponent implements OnInit {
 
-  // TODO: move this method
-
   myForm: FormGroup = this.fb.group({
     name: ['', [Validators.required, Validators.pattern(this.validatorService.firstLastNamesPattern)]],
     email: ['', [Validators.required, Validators.pattern(this.validatorService.emailPattern)], [this.emailValidator]],
@@ -41,6 +39,18 @@ export class RegisterComponent implements OnInit {
 
   notValidField(field: string) {
     return this.myForm.get(field)?.invalid && this.myForm.get(field)?.touched
+  }
+
+  emailRequired() {
+    return this.myForm.get('email')?.errors?.['required'] && this.myForm.get('email')?.touched
+  }
+
+  emailFormat() {
+    return this.myForm.get('email')?.errors?.['pattern'] && this.myForm.get('email')?.touched
+  }
+
+  emailTaken() {
+    return this.myForm.get('email')?.errors?.['emailTaken'] && this.myForm.get('email')?.touched
   }
 
   submitForm() {

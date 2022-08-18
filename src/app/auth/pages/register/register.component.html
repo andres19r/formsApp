@@ -21,8 +21,12 @@
         <label class="col-sm-3 col-form-label">Email</label>
         <div class="col-sm-9">
           <input formControlName="email" type="email" class="form-control" placeholder="User email" />
-          <span class="form-text text-danger" *ngIf="notValidField('email')">
-            The emain is required</span>
+          <span class="form-text text-danger" *ngIf="emailRequired()">
+            The email is required</span>
+          <span class="form-text text-danger" *ngIf="emailFormat()">
+            The email format is invalid</span>
+          <span class="form-text text-danger" *ngIf="emailTaken()">
+            The email is already taken</span>
         </div>
       </div>
 
